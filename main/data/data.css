@@ -1,0 +1,123 @@
+.container,
+section.left,
+section.center,
+section.right,
+.module,
+.column {
+    display: flex;
+}
+
+.container {
+    padding: 20px;
+    justify-content: center;
+    align-items: flex-start; /* Add this to align items at the top */
+}
+
+section.left,
+section.right,
+.column {
+    flex-direction: column;
+    justify-content: center;
+}
+
+section.center {
+    justify-content: space-around;
+}
+
+section {
+    position: relative;
+}
+
+.module {
+    padding: 5px 0;
+}
+
+.column {
+    padding: 0 22px;
+    position: relative;
+}
+
+.connector-vertical-outer,
+.connector-vertical-inner {
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.box {
+    display: flex;
+    justify-content: space-around;
+    width: 90px;
+    font-size: 12px;
+    color: white;
+    border-radius: 5px;
+    font-family: pretendard;
+    margin: 5px 0;
+    padding: 10px;
+    position: relative;
+}
+
+.box p {
+    align-self: center;
+    text-align: center;
+    margin: 0;
+}
+
+.connector-vertical-outer {
+    height: 100%;
+    width: 1px;
+    position: absolute;
+    border-right: 1px dashed black;
+}
+
+.connector-vertical-inner {
+    height: 100%;
+    width: 1px;
+    position: absolute;
+    border-right: 1px dashed black;
+}
+
+.lines-horizontal {
+    position: absolute;
+    width: 20px;
+    top: 50%;
+    border-top: 1px dashed black;
+}
+
+.connector-right {
+    left: 100%;
+}
+
+.connector-left {
+    right: 100%;
+}
+
+.left .one .box {
+    background: darkcyan;
+}
+
+.right .one .box {
+    background: darkkhaki;
+}
+
+.sidebar {
+    font-family: pretendard;
+    width: 300px;
+    padding: 20px;
+    background: #f0f0f0;
+    border-left: 1px solid #ccc;
+    flex-shrink: 0; /* Prevent the sidebar from shrinking */
+    height: 100%; /* Make the sidebar fill the height of the container */
+}
+
+.content {
+    margin: 20px;
+}
+
+/* Ensure the main content and sidebar are side by side */
+.container {
+    display: flex;
+    flex-direction: row;
+}
