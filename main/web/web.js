@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var $numModules = $('.' + side + ' .module').length;
             var $top = $(this).find('.outer .box:first ' + connector).offset().top;
             var $bottom = $(this).find('.outer .box:last ' + connector).offset().top;
-            var $innerHeight = $(this).height();
+            var $innerHeight = $(this).height(); 
 
             $(this).find('.connector-vertical-outer').css({
                 'top': ($top - 20) + 'px',
