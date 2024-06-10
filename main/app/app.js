@@ -10,36 +10,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // OUTER VERTICAL LINES
-    // pass 'left' or 'right' to side
-    // pass opposite direction do connectorDirection
     function outerVertical(side, connectorDirection) {
-        var connector = '.connector-' + connectorDirection
+        var connector = '.connector-' + connectorDirection;
 
-        $('.' + side + ' .module').each(function () {
-            var $numModules = $('.' + side + ' .module').length;
-            var $top = $(this).find('.outer .box:first ' + connector).offset().top;
-            var $bottom = $(this).find('.outer .box:last ' + connector).offset().top;
-            var $innerHeight = $(this).height();
+        document.querySelectorAll('.' + side + ' .module').forEach(module => {
+            var numModules = document.querySelectorAll('.' + side + ' .module').length;
+            var top = module.querySelector('.outer .box:first-child ' + connector).getBoundingClientRect().top;
+            var bottom = module.querySelector('.outer .box:last-child ' + connector).getBoundingClientRect().top;
 
-            $(this).find('.connector-vertical-outer').css({
-                'top': ($top - 20) + 'px',
-                'height': ($bottom - $top) + 'px'
-            });
-
+            module.querySelector('.connector-vertical-outer').style.top = (top - 20) + 'px';
+            module.querySelector('.connector-vertical-outer').style.height = (bottom - top) + 'px';
         });
     }
 
     // INNER VERTICAL LINES
     function innerVertical(side) {
-        var $numModules = $('.' + side + ' .module').length;
-        var $top = $('.' + side + ' .inner:first .box').offset().top;
-        var $bottom = $('.' + side + ' .inner:last .box').offset().top;
-        var $innerHeight = $('.' + side).height();
+        var numModules = document.querySelectorAll('.' + side + ' .module').length;
+        var top = document.querySelector('.' + side + ' .inner:first-child .box').getBoundingClientRect().top;
+        var bottom = document.querySelector('.' + side + ' .inner:last-child .box').getBoundingClientRect().top;
 
-        $('.' + side + ' .connector-vertical-inner').css({
-            'top': ($top - $numModules) + 'px',
-            'height': ($bottom - $top) + 'px'
-        });
+        document.querySelector('.' + side + ' .connector-vertical-inner').style.top = (top - numModules) + 'px';
+        document.querySelector('.' + side + ' .connector-vertical-inner').style.height = (bottom - top) + 'px';
     }
 
     outerVertical('left', 'right');
